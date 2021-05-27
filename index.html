@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
@@ -18,17 +19,15 @@
             <div class="texto">
                 Valor compra
             </div>
-            <div class="precio">
+            <div class="preciototal" id="preciototal">
                 0€
             </div>
         </div>
 
-        <div class="carrito">
+        <div class="carrito" >
             <div class="cesta">
-                <i class="fas fa-shopping-cart"></i>
-                <div class="numero" id="numero">
-                    0
-                </div>
+                <i class="fas fa-shopping-cart" onclick="abrirModal()"></i>
+                <div class="numero" id="numero">0</div>
             </div>
         </div>
 
@@ -58,7 +57,18 @@
             </div>
         </div> -->
     </div>
+
+    <div class="cajamodal" id="contenedorModal" style="display: none;">
+        <div class="modal">
+             <div class="cierre" ><p onclick="cierreModal()">X</p></div>
+             <div id="contenedorCarrito">
+    
+             </div>
+         </div> 
+    
+     </div> 
     
 </body>
 <script src="JS/motor.js"></script>
+<script src="JS/modal.js"></script>
 </html>
