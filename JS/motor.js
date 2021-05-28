@@ -141,7 +141,7 @@ function cambiaprecio(posicion) {
 function anadircarrito(posicion){
     contador++;
     document.getElementById("numero").innerHTML=contador;
-    alert("añadido " + movil[posicion].nombre);
+    // alert("añadido " + movil[posicion].nombre);
     if(document.getElementById(`tamanop${posicion}`).checked){
         valor=movil[posicion].pequeno;
         tamanox="32GB"
@@ -154,17 +154,31 @@ function anadircarrito(posicion){
         valor=movil[posicion].pequeno;
         tamanox="128GB"
     }
-    lista.push({nombre:movil[posicion].nombre,precio:valor})
+    lista.push({nombre:movil[posicion].nombre,precio:valor, tamano: tamanox})
 }
 
 function listarCarrito() {
     document.getElementById('contenedorCarrito').innerHTML="";
     for(let x=0;x<lista.length;x++){
         document.getElementById('contenedorCarrito').innerHTML+=`<div class="cajaCarrito">
-                                                                <div>${lista[x].nombre} </div>
-                                                                <div>${lista[x].precio} </div>
+                                                                <div>${lista[x].nombre}</div>
+                                                                <div>${lista[x].precio} €</div>
+                                                                <div>${lista[x].tamano}</div>
                                                                  </div>` ;
     }
+}
+
+function valortotal(posicion){
+    total=parseInt(document.getElementById("preciototal").innerHTML);
+    if(document.getElementById(`tamanop${posicion}`).checked){
+        total+=moviles[posicion].tamanop;
+    }
+    else if(document.getElementById(`tamanom${posicion}`).checked){
+        total+=moviles[posicion].tamanom;
+    }else{
+        total+=moviles[posicion].tamanog;
+    }
+    document.getElementById('preciototal').innerHTML=total + "€";
 }
 
 // function valortotal(posicion) {
